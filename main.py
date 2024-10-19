@@ -59,7 +59,7 @@ def start_game():
     draw_board()
 
     # игра продолжается до тех пор, пока кто-то не выиграет или выйдет
-    while (step < 9) and (check_win() == False):
+    while (step <= 9) and (check_win() == False):
         index = input('Ходит ' + current_player + '. Введите номер поля (0 - выход):')
 
         if int(index) == 0:
@@ -79,4 +79,11 @@ def start_game():
             step += 1
         else:
             print('Неверный номер! Повторите!')
-    print('Выиграл ' + check_win())
+    if check_win():
+        print('Выиграл ' + check_win())
+    elif not(check_win) and (step == 9):
+        print('Игра оконцена. Ничья!')
+
+
+print('Добро пожаловать в игру!')
+start_game()
