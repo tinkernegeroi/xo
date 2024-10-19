@@ -32,7 +32,7 @@ def check_win():
     )
 
     for pos in win_combination:
-        # если три ячейки совпадает
+        # если три ячейки совпадают
         if board[pos[0]] == board[pos[1]] and board[pos[1]] == board[pos[2]] and board[pos[1]] in ('X', 'O'):
             win = board[pos[0]]
 
