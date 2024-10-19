@@ -19,3 +19,23 @@ def game_step(index, char):
 
     board[index - 1] = char
     return True
+
+def check_win():
+    ''' Проверяем победу одного из игроков '''
+    win = False
+
+    win_combination = (
+        (0, 1, 2), (3, 4, 5), (6, 7, 8),  # горизонтальные линии
+        (0, 3, 6), (1, 4, 7), (2, 5, 8),  # вертикальные линии
+        (0, 4, 8), (2, 4, 6)  # диагональные линии
+    )
+
+    for pos in win_combination:
+        # если три ячейки совпадает
+        # для урока покажу вариант ниже
+        # len(set([board[pos[0]], board[pos[1]], board[pos[2]]]))
+        if board[pos[0]] == board[pos[1]] and board[pos[1]] == board[pos[2]] and board[pos[1]] in ('X', 'O'):
+            win = board[pos[0]]
+
+    return win
+
