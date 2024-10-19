@@ -20,6 +20,7 @@ def game_step(index, char):
     board[index - 1] = char
     return True
 
+
 def check_win():
     ''' Проверяем победу одного из игроков '''
     win = False
@@ -39,3 +40,43 @@ def check_win():
 
     return win
 
+
+def game_step(index, char):
+    ''' Функция хода игрока '''
+    if index > 10 or index < 1 or board[index - 1] in ('X', 'O'):
+        return False
+
+    board[index - 1] = char
+    return True
+
+
+def start_game():
+    # текущий игрок
+    current_player = 'X'
+    # номер шага
+    step = 1
+
+    draw_board()
+
+    # игра продолжается до тех пор, пока кто-то не выиграет или выйдет
+    while (step < 9) and (check_win() == False):
+        index = input('Ходит ' + current_player + '. Введите номер поля (0 - выход):')
+
+        if int(index) == 0:
+            break
+
+        # если получилось сделать шаг
+        if game_step(int(index), current_player):
+            print('Удачный ход')
+
+            if current_player == 'X':
+                current_player = 'O'
+            else:
+                current_player = 'X'
+
+            draw_board()
+            # увеличим номер шага
+            step += 1
+        else:
+            print('Неверный номер! Повторите!')
+    print('Выиграл ' + check_win())
