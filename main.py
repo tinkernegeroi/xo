@@ -33,8 +33,6 @@ def check_win():
 
     for pos in win_combination:
         # если три ячейки совпадает
-        # для урока покажу вариант ниже
-        # len(set([board[pos[0]], board[pos[1]], board[pos[2]]]))
         if board[pos[0]] == board[pos[1]] and board[pos[1]] == board[pos[2]] and board[pos[1]] in ('X', 'O'):
             win = board[pos[0]]
 
@@ -83,7 +81,7 @@ def start_game():
         print('Выиграл ' + check_win())
         restart()
     elif not(check_win) and (step == 9):
-        print('Игра оконцена. Ничья!')
+        print('Игра окончена. Ничья!')
         restart()
 
 
