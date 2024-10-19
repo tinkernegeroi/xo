@@ -81,8 +81,18 @@ def start_game():
             print('Неверный номер! Повторите!')
     if check_win():
         print('Выиграл ' + check_win())
+        restart()
     elif not(check_win) and (step == 9):
         print('Игра оконцена. Ничья!')
+        restart()
+
+
+def restart():
+    f = int(input("Хотите начать заново? 1-да, 0-нет"))
+    if f:
+        global board
+        board = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        start_game()
 
 
 print('Добро пожаловать в игру!')
